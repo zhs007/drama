@@ -8,6 +8,7 @@ import (
 	"sync"
 
 	jsoniter "github.com/json-iterator/go"
+	"github.com/zhs007/drama"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
@@ -153,6 +154,8 @@ func InitLogger(logname string, appVersion string, level string, isConsole bool,
 		}
 
 		logger = cl
+
+		Info("Version is " + drama.Version)
 	})
 
 	// return
@@ -248,7 +251,7 @@ func JSON(name string, jobj interface{}) zap.Field {
 
 	b, err := json.Marshal(jobj)
 	if err != nil {
-		Warn("sgc7utils.JSON",
+		Warn("dramautils.JSON",
 			zap.Error(err))
 
 		return zap.String(name, err.Error())

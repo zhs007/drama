@@ -24,25 +24,6 @@ func GetJsonString(data []byte, keys ...string) (val string, err error) {
 
 	if t == jsonparser.Number {
 		return string(v), nil
-		// if strings.Contains(string(v), ".") {
-		// 	nf, err := jsonparser.ParseFloat(v)
-		// 	if err != nil {
-		// 		return "", err
-		// 	}
-
-		// 	str := strconv.FormatFloat(nf, 'E', -1, 64)
-
-		// 	return str, nil
-		// }
-
-		// iv, err := jsonparser.ParseInt(v)
-		// if err != nil {
-		// 	return "", err
-		// }
-
-		// str := strconv.FormatInt(iv, 10)
-
-		// return str, nil
 	}
 
 	if t != jsonparser.String {

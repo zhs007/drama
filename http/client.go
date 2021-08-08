@@ -47,7 +47,7 @@ func HTTPPost(url string, header map[string]string, bodyObj interface{}) (int, [
 
 		bb, err := json.Marshal(bodyObj)
 		if err != nil {
-			dramautils.Warn("sgc7http.HTTPPost:Marshal",
+			dramautils.Warn("dramautils.HTTPPost:Marshal",
 				zap.Error(err))
 
 			return -1, nil, err
