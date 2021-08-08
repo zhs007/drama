@@ -4,7 +4,19 @@ option go_package = "github.com.zhs007/drama/gamepb";
 
 // GameObj
 message GameObj {
-    int64 HP = 1;				// HP
-    int64 MP = 2;               // MP
-    int64 Money = 3;            // Money
+    int64 HP = 1;				        // HP
+    int64 MP = 2;                       // MP
+    int64 Money = 3;                    // Money
+    int64 MaxHP = 4;                    // max hp
+    int64 MaxMP = 5;                    // max mp
+    float bureaucracyFavorability = 6;  // 官僚，士，好感度
+    float agricultureFavorability = 7;  // 农，好感度
+    float industryFavorability = 8;     // 工，好感度
+    float businessFavorability = 9;     // 商，好感度
+    float nobleFavorability = 10;       // 贵族，好感度
+    float bureaucracyThatPower = 11;    // 官僚，士，权力
+    float agricultureThatPower = 12;    // 农，权力
+    float industryThatPower = 13;       // 工，权力
+    float businessThatPower = 14;       // 商，权力
+    float nobleThatPower = 15;          // 贵族，权力    
 }
