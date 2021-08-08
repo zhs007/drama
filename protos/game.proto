@@ -1,0 +1,10 @@
+syntax = "proto3";
+package drama;
+option go_package = "github.com.zhs007/drama/gamepb";
+
+// GameObj
+message GameObj {
+    int64 HP = 1;				// HP
+    int64 MP = 2;               // MP
+    int64 Money = 3;            // Money
+}
