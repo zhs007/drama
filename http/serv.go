@@ -69,7 +69,7 @@ func (s *Serv) Start() error {
 
 	ln, err := net.Listen("tcp4", s.bindAddr)
 	if err != nil {
-		dramautils.Error("block7http.Serv.Start:Listen",
+		dramautils.Error("dramahttp.Serv.Start:Listen",
 			zap.Error(err))
 
 		return err
@@ -97,7 +97,7 @@ func (s *Serv) SetResponse(ctx *fasthttp.RequestCtx, jsonObj interface{}) {
 
 	b, err := json.Marshal(jsonObj)
 	if err != nil {
-		dramautils.Warn("block7http.Serv.SetResponse",
+		dramautils.Warn("dramahttp.Serv.SetResponse",
 			zap.Error(err))
 
 		s.SetHTTPStatus(ctx, fasthttp.StatusInternalServerError)
@@ -109,7 +109,7 @@ func (s *Serv) SetResponse(ctx *fasthttp.RequestCtx, jsonObj interface{}) {
 	ctx.SetStatusCode(fasthttp.StatusOK)
 	ctx.SetBody(b)
 
-	dramautils.Debug("block7http.Serv.SetResponse",
+	dramautils.Debug("dramahttp.Serv.SetResponse",
 		zap.String("RequestURI", string(ctx.RequestURI())),
 		zap.String("body", string(b)))
 }
@@ -123,7 +123,7 @@ func (s *Serv) SetStringResponse(ctx *fasthttp.RequestCtx, str string) {
 	ctx.SetStatusCode(fasthttp.StatusOK)
 	ctx.SetBody([]byte(str))
 
-	dramautils.Debug("block7http.Serv.SetStringResponse",
+	dramautils.Debug("dramahttp.Serv.SetStringResponse",
 		zap.String("RequestURI", string(ctx.RequestURI())),
 		zap.String("body", str))
 }
@@ -135,7 +135,7 @@ func (s *Serv) SetHTTPStatus(ctx *fasthttp.RequestCtx, statusCode int) {
 
 	ctx.SetStatusCode(statusCode)
 
-	dramautils.Debug("block7http.Serv.SetHTTPStatus",
+	dramautils.Debug("dramahttp.Serv.SetHTTPStatus",
 		zap.String("RequestURI", string(ctx.RequestURI())),
 		zap.Int("statusCode", statusCode))
 }
