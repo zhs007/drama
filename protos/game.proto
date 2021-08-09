@@ -21,3 +21,23 @@ message GameObj {
     float nobleThatPower = 15;          // 贵族，权力    
 }
 
+// GameEventOption
+message GameEventOption {
+    string info = 1;
+    GameObj obj = 2;
+}
+
+// GameEvent
+message GameEvent {
+    string info = 1;
+    repeated GameEventOption options = 2;
+}
+
+// GameCard
+message GameCard {
+    int64 objID = 1;
+    int32 objType = 2;
+    string name = 3;
+    GameObj person = 4;
+    GameEvent event = 5;
+}

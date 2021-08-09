@@ -180,6 +180,198 @@ func (x *GameObj) GetNobleThatPower() float32 {
 	return 0
 }
 
+// GameEventOption
+type GameEventOption struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Info string   `protobuf:"bytes,1,opt,name=info,proto3" json:"info,omitempty"`
+	Obj  *GameObj `protobuf:"bytes,2,opt,name=obj,proto3" json:"obj,omitempty"`
+}
+
+func (x *GameEventOption) Reset() {
+	*x = GameEventOption{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_game_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GameEventOption) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GameEventOption) ProtoMessage() {}
+
+func (x *GameEventOption) ProtoReflect() protoreflect.Message {
+	mi := &file_game_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GameEventOption.ProtoReflect.Descriptor instead.
+func (*GameEventOption) Descriptor() ([]byte, []int) {
+	return file_game_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GameEventOption) GetInfo() string {
+	if x != nil {
+		return x.Info
+	}
+	return ""
+}
+
+func (x *GameEventOption) GetObj() *GameObj {
+	if x != nil {
+		return x.Obj
+	}
+	return nil
+}
+
+// GameEvent
+type GameEvent struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Info    string             `protobuf:"bytes,1,opt,name=info,proto3" json:"info,omitempty"`
+	Options []*GameEventOption `protobuf:"bytes,2,rep,name=options,proto3" json:"options,omitempty"`
+}
+
+func (x *GameEvent) Reset() {
+	*x = GameEvent{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_game_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GameEvent) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GameEvent) ProtoMessage() {}
+
+func (x *GameEvent) ProtoReflect() protoreflect.Message {
+	mi := &file_game_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GameEvent.ProtoReflect.Descriptor instead.
+func (*GameEvent) Descriptor() ([]byte, []int) {
+	return file_game_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GameEvent) GetInfo() string {
+	if x != nil {
+		return x.Info
+	}
+	return ""
+}
+
+func (x *GameEvent) GetOptions() []*GameEventOption {
+	if x != nil {
+		return x.Options
+	}
+	return nil
+}
+
+// GameCard
+type GameCard struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ObjID   int64      `protobuf:"varint,1,opt,name=objID,proto3" json:"objID,omitempty"`
+	ObjType int32      `protobuf:"varint,2,opt,name=objType,proto3" json:"objType,omitempty"`
+	Name    string     `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	Person  *GameObj   `protobuf:"bytes,4,opt,name=person,proto3" json:"person,omitempty"`
+	Event   *GameEvent `protobuf:"bytes,5,opt,name=event,proto3" json:"event,omitempty"`
+}
+
+func (x *GameCard) Reset() {
+	*x = GameCard{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_game_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GameCard) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GameCard) ProtoMessage() {}
+
+func (x *GameCard) ProtoReflect() protoreflect.Message {
+	mi := &file_game_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GameCard.ProtoReflect.Descriptor instead.
+func (*GameCard) Descriptor() ([]byte, []int) {
+	return file_game_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GameCard) GetObjID() int64 {
+	if x != nil {
+		return x.ObjID
+	}
+	return 0
+}
+
+func (x *GameCard) GetObjType() int32 {
+	if x != nil {
+		return x.ObjType
+	}
+	return 0
+}
+
+func (x *GameCard) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *GameCard) GetPerson() *GameObj {
+	if x != nil {
+		return x.Person
+	}
+	return nil
+}
+
+func (x *GameCard) GetEvent() *GameEvent {
+	if x != nil {
+		return x.Event
+	}
+	return nil
+}
+
 var File_game_proto protoreflect.FileDescriptor
 
 var file_game_proto_rawDesc = []byte{
@@ -222,10 +414,29 @@ var file_game_proto_rawDesc = []byte{
 	0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x54, 0x68, 0x61, 0x74, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x12,
 	0x26, 0x0a, 0x0e, 0x6e, 0x6f, 0x62, 0x6c, 0x65, 0x54, 0x68, 0x61, 0x74, 0x50, 0x6f, 0x77, 0x65,
 	0x72, 0x18, 0x0f, 0x20, 0x01, 0x28, 0x02, 0x52, 0x0e, 0x6e, 0x6f, 0x62, 0x6c, 0x65, 0x54, 0x68,
-	0x61, 0x74, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x42, 0x20, 0x5a, 0x1e, 0x67, 0x69, 0x74, 0x68, 0x75,
-	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2e, 0x7a, 0x68, 0x73, 0x30, 0x30, 0x37, 0x2f, 0x64, 0x72, 0x61,
-	0x6d, 0x61, 0x2f, 0x67, 0x61, 0x6d, 0x65, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x61, 0x74, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x22, 0x47, 0x0a, 0x0f, 0x47, 0x61, 0x6d, 0x65, 0x45,
+	0x76, 0x65, 0x6e, 0x74, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x12, 0x0a, 0x04, 0x69, 0x6e,
+	0x66, 0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x69, 0x6e, 0x66, 0x6f, 0x12, 0x20,
+	0x0a, 0x03, 0x6f, 0x62, 0x6a, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x64, 0x72,
+	0x61, 0x6d, 0x61, 0x2e, 0x47, 0x61, 0x6d, 0x65, 0x4f, 0x62, 0x6a, 0x52, 0x03, 0x6f, 0x62, 0x6a,
+	0x22, 0x51, 0x0a, 0x09, 0x47, 0x61, 0x6d, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x12, 0x0a,
+	0x04, 0x69, 0x6e, 0x66, 0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x69, 0x6e, 0x66,
+	0x6f, 0x12, 0x30, 0x0a, 0x07, 0x6f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0x02, 0x20, 0x03,
+	0x28, 0x0b, 0x32, 0x16, 0x2e, 0x64, 0x72, 0x61, 0x6d, 0x61, 0x2e, 0x47, 0x61, 0x6d, 0x65, 0x45,
+	0x76, 0x65, 0x6e, 0x74, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x07, 0x6f, 0x70, 0x74, 0x69,
+	0x6f, 0x6e, 0x73, 0x22, 0x9e, 0x01, 0x0a, 0x08, 0x47, 0x61, 0x6d, 0x65, 0x43, 0x61, 0x72, 0x64,
+	0x12, 0x14, 0x0a, 0x05, 0x6f, 0x62, 0x6a, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x05, 0x6f, 0x62, 0x6a, 0x49, 0x44, 0x12, 0x18, 0x0a, 0x07, 0x6f, 0x62, 0x6a, 0x54, 0x79, 0x70,
+	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x07, 0x6f, 0x62, 0x6a, 0x54, 0x79, 0x70, 0x65,
+	0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
+	0x6e, 0x61, 0x6d, 0x65, 0x12, 0x26, 0x0a, 0x06, 0x70, 0x65, 0x72, 0x73, 0x6f, 0x6e, 0x18, 0x04,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x64, 0x72, 0x61, 0x6d, 0x61, 0x2e, 0x47, 0x61, 0x6d,
+	0x65, 0x4f, 0x62, 0x6a, 0x52, 0x06, 0x70, 0x65, 0x72, 0x73, 0x6f, 0x6e, 0x12, 0x26, 0x0a, 0x05,
+	0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x10, 0x2e, 0x64, 0x72,
+	0x61, 0x6d, 0x61, 0x2e, 0x47, 0x61, 0x6d, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65,
+	0x76, 0x65, 0x6e, 0x74, 0x42, 0x20, 0x5a, 0x1e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63,
+	0x6f, 0x6d, 0x2e, 0x7a, 0x68, 0x73, 0x30, 0x30, 0x37, 0x2f, 0x64, 0x72, 0x61, 0x6d, 0x61, 0x2f,
+	0x67, 0x61, 0x6d, 0x65, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -240,16 +451,23 @@ func file_game_proto_rawDescGZIP() []byte {
 	return file_game_proto_rawDescData
 }
 
-var file_game_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_game_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_game_proto_goTypes = []interface{}{
-	(*GameObj)(nil), // 0: drama.GameObj
+	(*GameObj)(nil),         // 0: drama.GameObj
+	(*GameEventOption)(nil), // 1: drama.GameEventOption
+	(*GameEvent)(nil),       // 2: drama.GameEvent
+	(*GameCard)(nil),        // 3: drama.GameCard
 }
 var file_game_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: drama.GameEventOption.obj:type_name -> drama.GameObj
+	1, // 1: drama.GameEvent.options:type_name -> drama.GameEventOption
+	0, // 2: drama.GameCard.person:type_name -> drama.GameObj
+	2, // 3: drama.GameCard.event:type_name -> drama.GameEvent
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_game_proto_init() }
@@ -270,6 +488,42 @@ func file_game_proto_init() {
 				return nil
 			}
 		}
+		file_game_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GameEventOption); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_game_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GameEvent); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_game_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GameCard); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -277,7 +531,7 @@ func file_game_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_game_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
